@@ -1,0 +1,38 @@
+<nav  class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Messagerie (ENIG)</span>
+  <button type="submit" (click)="send()"class="btn btn-primary" routerLink="send">Send</button>
+</nav>
+
+<div class="row">
+  <div class="col-3">
+      <ul class="nav flex-column">
+          <li class="nav-item">
+          <a class="nav-link active" routerLink="contenu" (click)="MsgRec()" >Message Recus</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" routerLink="ListeMsgEnv" (click)="MsgEnv()">Message envoyees</a>
+          </li>
+      </ul>
+  </div>
+
+<div class="col-9">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">De</th>
+          <th scope="col">Sujet</th>
+          <th scope="col">Message Envoyee</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of lms">
+          <td>moi :{{ l.userSend.username}}</td>
+          <td>{{ l.sujet}}</td>
+          <td>{{ l.contenu}}</td>
+          <td><button class="btn btn-sm btn-outline-danger" (click)="Supprimer(l.id)">X</button></td>
+        
+      </tbody>
+    </table>
+</div>

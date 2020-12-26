@@ -1,0 +1,60 @@
+
+<ul class="nav nav-pills" >
+  <li class="nav-item">
+    <a class="nav-link active">Session Active {{username}} </a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Actions</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" href="#">action 2</a>
+      <a class="dropdown-item" (click)="clear()" routerLink="">Deconnexion</a>
+
+    <div class="dropdown-divider"></div>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="dropdown-item" (click)="send()" routerLink="send">Send Message</a>
+  </li>
+</ul>
+<!-- <nav  class="navbar navbar-light bg-light">
+ 
+  <span class="navbar-brand mb-0 h1">Messagerie (ENIG)</span>
+  <button type="submit" (click)="send()"class="btn btn-primary" routerLink="send">Send</button>
+  <button type="submit" (click)="clear()"class="btn btn-danger" routerLink="">Deconnexion</button>
+  SESSION DE :  {{username}}
+</nav> -->
+
+<div class="row">
+<div class="col-3">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+        <a class="nav-link active" routerLink="contenu" (click)="MsgRec()" >Message Recus</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" routerLink="ListeMsgEnv" (click)="MsgEnv()">Message envoyees</a>
+        </li>
+    </ul>
+</div>
+<div class="col-9">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">De</th>
+        <th scope="col">Sujet</th>
+        <th scope="col">Message Recu</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let l of lm">
+        <td>{{ l.userSend.username}}</td>
+        <td>{{ l.sujet}}</td>
+        <td>{{ l.contenu}}</td>
+        <td><button class="btn btn-sm btn-outline-danger" (click)="Supprimer(l.id)">X</button></td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
